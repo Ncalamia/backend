@@ -68,9 +68,7 @@ app.get('/', (req, res) => {
 
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.redirect('/');
-});
+
 
 //___________________
 //Listener
