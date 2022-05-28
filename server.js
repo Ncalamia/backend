@@ -3,6 +3,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
+const Msaschema = require('./models/msaschema.js')
+const seedMSA = require('./models/msadata.js')
 // const db = moongoose.connection
 require('dotenv').config()
 
@@ -37,22 +39,26 @@ app.use(cors())
 
 
 // RESTful CRUD ROUTES
-// app.post('/app/seed', (req, res) => {
-//     Creature.create(seedData, (error, createdSeedData) => {
-//         res.json(createdSeedData)
-//     })
-// })
-//
-// app.post('/app', (req, res) => {
-//     Creature.create(req.body, (error, createdApp) => {
+//Creating seed data
+app.get('/seed', (req, res) => {
+    Msaschema.create(seedMSA, (err, createdMSAData) => {
+        res.redirect('/')
+    })
+})
+
+// app.post('/', (req, res) => {
+//     Msaschema.create(req.body, (error, createdApp) => {
 //         res.json(createdApp)
 //     })
 // })
 
+//Path to find MSA page
 app.get('/', (req, res) => {
-			res.send('Hello World')
-        // res.json(foundApp)
+            Msaschema.find({}, (err, shooting) => {
+                res.json(shooting)
+            })
 })
+
 
 // app.put('/app/:id', (req, res) => {
 //     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
