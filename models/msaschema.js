@@ -18,5 +18,5 @@ const Msaschema = new mongoose.Schema (
   }
 )
 
-const msacollection = mongoose.Model("msacollection", Msaschema)
+const msacollection = mongoose.model("msacollection", Msaschema)
 module.exports = msacollection

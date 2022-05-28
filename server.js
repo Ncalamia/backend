@@ -3,14 +3,16 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
+const Msaschema = require('./models/msaschema.js')
+const seedMSA = require('./models/msadata.js')
 // const db = moongoose.connection
 require('dotenv').config()
 
 // CONNECTIONS
-// mongoose.connect('mongodb://localhost:27017/app')
-// mongoose.connection.once('open', () => {
-//     console.log('connected to mongod...')
-// })
+mongoose.connect('mongodb://localhost:27017/app')
+mongoose.connection.once('open', () => {
+    console.log('connected to mongod...')
+})
 
 //Port
 //___________________
@@ -26,9 +28,9 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , () => {
-	console.log('connected to mongo')
-})
+// mongoose.connect(MONGODB_URI , () => {
+// 	console.log('connected to mongo')
+// })
 
 
 // MIDDLEWARE
@@ -37,22 +39,26 @@ app.use(cors())
 
 
 // RESTful CRUD ROUTES
-// app.post('/app/seed', (req, res) => {
-//     Creature.create(seedData, (error, createdSeedData) => {
-//         res.json(createdSeedData)
-//     })
-// })
-//
-// app.post('/app', (req, res) => {
-//     Creature.create(req.body, (error, createdApp) => {
+//Creating seed data
+app.get('/seed', (req, res) => {
+    Msaschema.create(seedMSA, (err, createdMSAData) => {
+        res.redirect('/')
+    })
+})
+
+// app.post('/', (req, res) => {
+//     Msaschema.create(req.body, (error, createdApp) => {
 //         res.json(createdApp)
 //     })
 // })
 
+//Path to find MSA page
 app.get('/', (req, res) => {
-			res.send('Hello World')
-        // res.json(foundApp)
+            Msaschema.find({}, (err, shooting) => {
+                res.json(shooting)
+            })
 })
+
 
 // app.put('/app/:id', (req, res) => {
 //     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
