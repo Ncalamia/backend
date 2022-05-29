@@ -4,14 +4,16 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
 const Msaschema = require('./models/msaschema.js')
+const Forumschema = require('./models/forumschema.js')
 const seedMSA = require('./models/msadata.js')
+const seedForum = require('./models/forumdata.js')
 require('dotenv').config()
 
 // CONNECTIONS
-// mongoose.connect('mongodb://localhost:27017/app')
-// mongoose.connection.once('open', () => {
-//     console.log('connected to mongod...')
-// })
+mongoose.connect('mongodb://localhost:27017/app')
+mongoose.connection.once('open', () => {
+    console.log('connected to mongod...')
+})
 
 //Port
 //___________________
@@ -27,9 +29,9 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , () => {
-	console.log('connected to mongo')
-})
+// mongoose.connect(MONGODB_URI , () => {
+// 	console.log('connected to mongo')
+// })
 
 
 // MIDDLEWARE
@@ -39,8 +41,15 @@ app.use(cors())
 
 // RESTful CRUD ROUTES
 //Creating seed data
+//Creating seed data for mass shootings
 app.get('/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
+        res.redirect('/')
+    })
+})
+//Creating seed data for forumn
+app.get('/seedforum', (req, res) => {
+    Forumschema.create(seedForum, (err, createdForumData) => {
         res.redirect('/')
     })
 })
@@ -52,10 +61,30 @@ app.get('/seed', (req, res) => {
 // })
 
 //Path to find MSA page
+// app.get('/', (req, res) => {
+//   Msaschema.find({}, (err, shooting) => {
+//     res.json(shooting)
+//   })
+// })
+//Path to find thoughts page
+// app.get('/', (req, res) => {
+//   Forumschema.find({}, (err, thoughts) => {
+//     res.json(thoughts)
+//   })
+// })
+
+//testing both pages
 app.get('/', (req, res) => {
-            Msaschema.find({}, (err, shooting) => {
-                res.json(shooting)
-            })
+	Msaschema.find({}, (err, shooting) => {
+		Forumschema.find({}, (err, thoughts) => {
+	     res.json(
+				 {
+				 shooting,
+				 thoughts
+			 }
+			)
+  })
+  })
 })
 
 
