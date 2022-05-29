@@ -74,6 +74,7 @@ app.get('/', (req, res) => {
   })
   })
 })
+
 // app.put('/app/:id', (req, res) => {
 //     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
 //         res.json(updatedApp)
