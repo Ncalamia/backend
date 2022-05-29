@@ -12,3 +12,4 @@ The Stanford MSA is released under a Creative Commons Attribution 4.0 internatio
 -Found data to use, set up database for 1 part of project and made schema. We converted our data from CSV file to JSON file. We successfully viewed our data locally and in Postman.
 
 5/29:
+-Set up forum data and schema. Set up senator schema. Set up the app.get route for forum and msa data. Still getting used to working with branches and git. Spent time on fixing rebase (bugs) with our git repo and branches.
