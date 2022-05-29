@@ -40,11 +40,11 @@ app.use(cors())
 
 // RESTful CRUD ROUTES
 //Creating seed data
-// app.get('/seed', (req, res) => {
-//     Msaschema.create(seedMSA, (err, createdMSAData) => {
-//         res.redirect('/')
-//     })
-// })
+app.get('/seed', (req, res) => {
+    Msaschema.create(seedMSA, (err, createdMSAData) => {
+        res.redirect('/')
+    })
+})
 
 // app.post('/', (req, res) => {
 //     Msaschema.create(req.body, (error, createdApp) => {
