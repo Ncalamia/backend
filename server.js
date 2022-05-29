@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
 const Msaschema = require('./models/msaschema.js')
+const Forumschema = require('./models/forumschema.js')
 const seedMSA = require('./models/msadata.js')
+const seedForum = require('./models/forumdata.js')
 require('dotenv').config()
 
 // CONNECTIONS
@@ -38,9 +40,15 @@ app.use(cors())
 
 
 // RESTful CRUD ROUTES
-//Creating seed data
+//Creating seed data for mass shootings
 app.get('/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
+        res.redirect('/')
+    })
+})
+//Creating seed data for forumn
+app.get('/seedforum', (req, res) => {
+    Forumschema.create(seedForum, (err, createdForumData) => {
         res.redirect('/')
     })
 })
@@ -52,13 +60,27 @@ app.get('/seed', (req, res) => {
 // })
 
 //Path to find MSA page
+// app.get('/', (req, res) => {
+//   Msaschema.find({}, (err, shooting) => {
+//     res.json(shooting)
+//   })
+// })
+//Path to find thoughts page
+// app.get('/', (req, res) => {
+//   Forumschema.find({}, (err, thoughts) => {
+//     res.json(thoughts)
+//   })
+// })
+
+//testing both pages
 app.get('/', (req, res) => {
-            Msaschema.find({}, (err, shooting) => {
-                res.json(shooting)
-            })
+  Forumschema.find({}, (err, thoughts) => {
+    res.json(thoughts)
+  })
+  Msaschema.find({}, (err, shooting) => {
+    res.json(shooting)
+  })
 })
-
-
 // app.put('/app/:id', (req, res) => {
 //     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
 //         res.json(updatedApp)
