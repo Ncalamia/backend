@@ -1,8 +1,13 @@
 # backend
 
-data source:
+Data Resources:
+
+MSA Data:
 https://github.com/StanfordGeospatialCenter/MSA
 The Stanford MSA is released under a Creative Commons Attribution 4.0 international license. Please cite the MSA as “Stanford Mass Shootings in America, courtesy of the Stanford Geospatial Center and Stanford Libraries”.
+
+Senator Data:
+https://www.nytimes.com/interactive/2022/05/25/us/gun-control-republican-senators.html
 
 
 5/27:
@@ -13,3 +18,41 @@ The Stanford MSA is released under a Creative Commons Attribution 4.0 internatio
 
 5/29:
 -Set up forum data and schema. Set up senator schema. Set up the app.get route for forum and msa data. Still getting used to working with branches and git. Spent time on fixing rebase (bugs) with our git repo and branches.
+
+
+
+
+
+<!-- //Info Area
+
+//How to fix gun problem:
+// https://www.preventioninstitute.org/focus-areas/preventing-violence-and-reducing-injury/preventing-violence-advocacy
+
+//Gun safety: Reduce the imminent risk of lethality through sensible gun laws and a culture of safety.
+//1. Sensible gun laws: Reduce easy access to dangerous weapons.
+// 2. Establish a culture of gun safety.
+// Reduce firearm access to youth and individuals who are at risk of harming themselves or others.
+// This includes keeping guns out of the hands of those who have been violent toward their partners and families, and those with previous violent convictions, whether through expanding lethality assessment and background checks(link is external) or supporting domestic violence bills(link is external), and gun violence restraining orders
+
+// Hold the gun industry accountable and ensure there is adequate oversight over the marketing and sales of guns and ammunition.
+// Engage responsible gun dealers and owners in solutions.
+// Insist on mandatory training and licensing for owners.
+// Require safe and secure gun storage.
+
+//Underlying contributors to gun violence: systematically reduce risks and increase resilience in individuals, families, and communities.
+// 3. Public health solutions: Recognize gun violence as a critical and preventable public health problem.
+// 4. Comprehensive solutions: Support community planning and implementation of comprehensive community safety plans that include prevention and intervention.
+// 5. Trauma, connection, and services: Expand access to high quality, culturally competent, coordinated, social, emotional, and mental health supports and address the impact of trauma.
+
+// Prevention Infrastructure: ensure effectiveness and sustainability of efforts
+// 6. Support gun violence research: Ensure that the Centers for Disease Control and Prevention (CDC) and others have the resources to study this issue and provide science-based guidance.
+// 7. Health system: Establish a comprehensive health system in which violence prevention is a health system responsibility and imperative.
+
+// New Frontiers: continue to learn, innovate, and increase impact through research and practice
+// 8. Community healing: Prevent community trauma.
+// 9. Mental health and wellbeing: Invest in communities to promote resilience and mental health and wellbeing.
+// 10. Support healthy norms about masculinity: Explore the pathways between gun violence and harmful norms that have been about maintaining power and privilege.
+// 11. Impulsive anger: Explore the linkages between anger and gun violence.
+// 12. Economic development: Reduce concentrated disadvantage and invest in employment opportunities.
+// 13. Law enforcement violence: Establish accountability for sworn officers and private security.
+// 14. Technology: Advance gun safety and self-defense technology. -->
