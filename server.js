@@ -5,7 +5,6 @@ const cors = require('cors')
 const app = express()
 const Msaschema = require('./models/msaschema.js')
 const seedMSA = require('./models/msadata.js')
-// const db = moongoose.connection
 require('dotenv').config()
 
 // CONNECTIONS
