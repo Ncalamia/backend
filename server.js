@@ -40,10 +40,7 @@ app.use(cors())
 
 
 // RESTful CRUD ROUTES
-<<<<<<< HEAD
-//Creating seed data
-=======
->>>>>>> bb25d4759958bef198a269a8a7395226daf79cbd
+
 //Creating seed data for mass shootings
 app.get('/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
@@ -63,20 +60,8 @@ app.get('/seedforum', (req, res) => {
 //     })
 // })
 
-//Path to find MSA page
-// app.get('/', (req, res) => {
-//   Msaschema.find({}, (err, shooting) => {
-//     res.json(shooting)
-//   })
-// })
-//Path to find thoughts page
-// app.get('/', (req, res) => {
-//   Forumschema.find({}, (err, thoughts) => {
-//     res.json(thoughts)
-//   })
-// })
 
-//testing both pages
+//Route for home page, shows msa data and forum data
 app.get('/', (req, res) => {
 	Msaschema.find({}, (err, shooting) => {
 		Forumschema.find({}, (err, thoughts) => {
