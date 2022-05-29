@@ -40,7 +40,10 @@ app.use(cors())
 
 
 // RESTful CRUD ROUTES
+<<<<<<< HEAD
 //Creating seed data
+=======
+>>>>>>> bb25d4759958bef198a269a8a7395226daf79cbd
 //Creating seed data for mass shootings
 app.get('/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
@@ -86,8 +89,6 @@ app.get('/', (req, res) => {
   })
   })
 })
-
-
 // app.put('/app/:id', (req, res) => {
 //     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
 //         res.json(updatedApp)
