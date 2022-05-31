@@ -52,7 +52,7 @@ app.get('/project3/seed', (req, res) => {
 //Creating seed data for forumn
 app.get('/project3/seedforum', (req, res) => {
     Forumschema.create(seedForum, (err, createdForumData) => {
-        res.redirect('/project3')
+        res.redirect('createdForumData')
     })
 })
 
