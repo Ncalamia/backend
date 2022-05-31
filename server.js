@@ -17,25 +17,25 @@ require('dotenv').config()
 //     console.log('connected to mongod...')
 // })
 
-//Port
-//___________________
-// Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT
+// //Port
+// //___________________
+// // Allow use of Heroku's port or your own local port, depending on the environment
+// const PORT = process.env.PORT
+//
+// //___________________
+// //Database
+// //___________________
+// // How to connect to the database either via heroku or locally
+// const MONGODB_URI = process.env.MONGODB_URI;
+//
+// // Connect to Mongo &
+// // Fix Depreciation Warnings from Mongoose
+// // May or may not need these depending on your Mongoose version
+// mongoose.connect(MONGODB_URI , () => {
+// 	console.log('connected to mongo')
+// })
 
-//___________________
-//Database
-//___________________
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
-
-// Connect to Mongo &
-// Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , () => {
-	console.log('connected to mongo')
-})
-
-
+app.set("port",process.env.PORT || 3000)
 // MIDDLEWARE
 app.use(express.json())
 app.use(cors())
@@ -115,7 +115,8 @@ app.get('/' , (req, res) => {
 //Listener
 //___________________
 
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));
-
+// app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+app.listen(app.get('port'), ()=>{console.log(`"listening on ${app.get('port')}"`)
+})
 
 // mongoose.connect(MONGODB_URI  ,  { useNewUrlParser: true});
