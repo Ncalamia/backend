@@ -5,8 +5,10 @@ const cors = require('cors')
 const app = express()
 const Msaschema = require('./models/msaschema.js')
 const Forumschema = require('./models/forumschema.js')
+const Senatorschema = require('./models/senatorschema.js')
 const seedMSA = require('./models/msadata.js')
 const seedForum = require('./models/forumdata.js')
+const seedSenator = require('./models/senatordata.js')
 require('dotenv').config()
 
 // CONNECTIONS
@@ -54,38 +56,52 @@ app.get('/seedforum', (req, res) => {
     })
 })
 
-// app.post('/', (req, res) => {
-//     Msaschema.create(req.body, (error, createdApp) => {
-//         res.json(createdApp)
-//     })
-// })
+//Creating seed data for senators
+app.get('/seedsenator', (req, res) => {
+    Senatorschema.create(seedSenator, (err, createdSenatorData) => {
+        res.redirect('/')
+    })
+})
+
+
+// Create new forum post
+app.post('/forum', (req, res) => {
+  Forumschema.create(req.body, (err, createdForumPost) => {        res.json(createdForumPost)
+    })
+})
 
 
 //Route for home page, shows msa data and forum data
 app.get('/', (req, res) => {
 	Msaschema.find({}, (err, shooting) => {
 		Forumschema.find({}, (err, thoughts) => {
+      Senatorschema.find({}, (err, senator) => {
 	     res.json(
 				 {
 				 shooting,
-				 thoughts
+				 thoughts,
+         senator
 			 }
 			)
   })
   })
+  })
 })
 
-// app.put('/app/:id', (req, res) => {
-//     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
-//         res.json(updatedApp)
-//     })
-// })
-//
-// app.delete('/app/:id', (req, res) => {
-//     Creature.findByIdAndRemove(req.params.id, (error, deletedApp) => {
-//         res.json(deletedApp)
-//     })
-// })
+// Update forum post
+app.put('/forum/:id', (req, res) => {
+    Forumschema.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedForumPost) => {
+        res.json(updatedForumPost)
+    })
+})
+
+// Delete forum post
+app.delete('/forum/:id', (req, res) => {
+    Forumschema.findByIdAndRemove(req.params.id, (error, deletedForumPost) => {
+        res.json(deletedForumPost)
+    })
+})
+
 
 //___________________
 //localhost:3000
