@@ -31,9 +31,9 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , () => {
-	console.log('connected to mongo')
-})
+// mongoose.connect(MONGODB_URI , () => {
+// 	console.log('connected to mongo')
+// })
 
 
 // MIDDLEWARE
@@ -46,20 +46,20 @@ app.use(cors())
 //Creating seed data for mass shootings
 app.get('/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
-        res.redirect('/')
+        res.json('/')
     })
 })
 //Creating seed data for forumn
 app.get('/seedforum', (req, res) => {
     Forumschema.create(seedForum, (err, createdForumData) => {
-        res.redirect('/')
+        res.json('/')
     })
 })
 
 //Creating seed data for senators
 app.get('/seedsenator', (req, res) => {
     Senatorschema.create(seedSenator, (err, createdSenatorData) => {
-        res.redirect('/')
+        res.json('/')
     })
 })
 
@@ -111,3 +111,5 @@ app.delete('/forum/:id', (req, res) => {
 //Listener
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
+mongoose.connect(MONGODB_URI  ,  { useNewUrlParser: true});
