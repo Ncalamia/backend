@@ -7,7 +7,28 @@ https://github.com/StanfordGeospatialCenter/MSA
 The Stanford MSA is released under a Creative Commons Attribution 4.0 international license. Please cite the MSA as “Stanford Mass Shootings in America, courtesy of the Stanford Geospatial Center and Stanford Libraries”.
 
 Senator Data:
+View on gun control:
 https://www.nytimes.com/interactive/2022/05/25/us/gun-control-republican-senators.html
+
+Senator Pictures & phone numbers:
+https://www.republicanleader.senate.gov/senate-resources/republican-senators
+
+Senator Email:
+https://www.senate.gov/general/contact_information/senators_cfm.xml
+
+
+
+Mental Health Resources:
+Suicide prevention hotline:
+1-800-273-8255
+https://www.aptapa.org/mhr#:~:text=Important%20Hotline%20Information&text=TEXT%20for%20help%3A%201%2D800,%2DTALK%20(8255)%20press%202
+
+SAMHSA’s National Helpline:
+For individuals and family members facing mental and/or substance use disorders. This service provides referrals to local treatment facilities, support groups, and community-based organizations.
+1-800-662-HELP (4357)
+https://www.samhsa.gov/find-help/national-helpline
+
+
 
 
 5/27:
@@ -18,7 +39,6 @@ https://www.nytimes.com/interactive/2022/05/25/us/gun-control-republican-senator
 
 5/29:
 -Set up forum data and schema. Set up senator schema. Set up the app.get route for forum and msa data. Still getting used to working with branches and git. Spent time on fixing rebase (bugs) with our git repo and branches.
-
 
 
 
@@ -56,3 +76,7 @@ https://www.nytimes.com/interactive/2022/05/25/us/gun-control-republican-senator
 // 12. Economic development: Reduce concentrated disadvantage and invest in employment opportunities.
 // 13. Law enforcement violence: Establish accountability for sworn officers and private security.
 // 14. Technology: Advance gun safety and self-defense technology. -->
+
+<!-- What to email senators:
+https://blog.sanebox.com/2017/02/23/how-to-email-your-senator-and-make-your-voice-heard/
+Address the senator by name—start the email with Dear Senator [last name]. State what you are writing about specifically. Let them know your position and why it matters to you—tell them how the legislation and its implications impact on you and others. -->
