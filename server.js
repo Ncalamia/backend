@@ -51,8 +51,10 @@ app.get('/project3/seed', (req, res) => {
 })
 //Creating seed data for forumn
 app.get('/project3/seedforum', (req, res) => {
+	console.log(req.body);
     Forumschema.create(seedForum, (err, createdForumData) => {
         res.json(createdForumData)
+console.log(createdForumData);
     })
 })
 
