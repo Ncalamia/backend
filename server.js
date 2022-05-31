@@ -11,29 +11,30 @@ const seedForum = require('./models/forumdata.js')
 const seedSenator = require('./models/senatordata.js')
 require('dotenv').config()
 
+
 // CONNECTIONS
 // mongoose.connect('mongodb://localhost:27017/app')
 // mongoose.connection.once('open', () => {
 //     console.log('connected to mongod...')
 // })
 
-// //Port
-// //___________________
-// // Allow use of Heroku's port or your own local port, depending on the environment
-// const PORT = process.env.PORT
-//
-// //___________________
-// //Database
-// //___________________
-// // How to connect to the database either via heroku or locally
-// const MONGODB_URI = process.env.MONGODB_URI;
-//
-// // Connect to Mongo &
-// // Fix Depreciation Warnings from Mongoose
-// // May or may not need these depending on your Mongoose version
-// mongoose.connect(MONGODB_URI , () => {
-// 	console.log('connected to mongo')
-// })
+//Port
+//___________________
+// Allow use of Heroku's port or your own local port, depending on the environment
+const PORT = process.env.PORT
+
+//___________________
+//Database
+//___________________
+// How to connect to the database either via heroku or locally
+const MONGODB_URI = process.env.MONGODB_URI;
+
+// Connect to Mongo &
+// Fix Depreciation Warnings from Mongoose
+// May or may not need these depending on your Mongoose version
+mongoose.connect(MONGODB_URI , () => {
+	console.log('connected to mongo')
+})
 
 app.set("port",process.env.PORT || 3000)
 // MIDDLEWARE
@@ -115,8 +116,6 @@ app.get('/' , (req, res) => {
 //Listener
 //___________________
 
-// app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
 app.listen(app.get('port'), ()=>{console.log(`"listening on ${app.get('port')}"`)
 })
-
-// mongoose.connect(MONGODB_URI  ,  { useNewUrlParser: true});
