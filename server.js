@@ -12,10 +12,10 @@ const seedSenator = require('./models/senatordata.js')
 require('dotenv').config()
 
 // CONNECTIONS
-mongoose.connect('mongodb://localhost:27017/app')
-mongoose.connection.once('open', () => {
-    console.log('connected to mongod...')
-})
+// mongoose.connect('mongodb://localhost:27017/app')
+// mongoose.connection.once('open', () => {
+//     console.log('connected to mongod...')
+// })
 
 //Port
 //___________________
@@ -31,9 +31,9 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-// mongoose.connect(MONGODB_URI , () => {
-// 	console.log('connected to mongo')
-// })
+mongoose.connect(MONGODB_URI , () => {
+	console.log('connected to mongo')
+})
 
 
 // MIDDLEWARE
