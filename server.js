@@ -46,20 +46,20 @@ app.use(cors())
 //Creating seed data for mass shootings
 app.get('/project3/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
-        res.json("createdMSAData")
+        res.json(createdMSAData)
     })
 })
 //Creating seed data for forumn
 app.get('/project3/seedforum', (req, res) => {
     Forumschema.create(seedForum, (err, createdForumData) => {
-        res.json("createdForumData")
+        res.json(createdForumData)
     })
 })
 
 //Creating seed data for senators
 app.get('/project3/seedsenator', (req, res) => {
     Senatorschema.create(seedSenator, (err, createdSenatorData) => {
-        res.json("createdSenatorData")
+        res.json(createdSenatorData)
     })
 })
 
