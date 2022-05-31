@@ -41,6 +41,12 @@ https://www.samhsa.gov/find-help/national-helpline
 -Set up forum data and schema. Set up senator schema. Set up the app.get route for forum and msa data. Still getting used to working with branches and git. Spent time on fixing rebase (bugs) with our git repo and branches.
 
 
+5/31:
+-Finished adding in senator data and creating CRUD routes.
+-
+
+
+
 
 
 <!-- //Info Area
