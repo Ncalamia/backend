@@ -6,8 +6,10 @@ const Senatorschema = new mongoose.Schema (
 		name: String,
 		party: String,
 		email: String,
+		phone: String,
 		leaning: String,
-		funding: String
+		funding: String,
+		image:String
   }
 )
 
