@@ -44,20 +44,20 @@ app.use(cors())
 // RESTful CRUD ROUTES
 
 //Creating seed data for mass shootings
-app.get('/seed', (req, res) => {
+app.get('/project3/seed', (req, res) => {
     Msaschema.create(seedMSA, (err, createdMSAData) => {
         res.json('/')
     })
 })
 //Creating seed data for forumn
-app.get('/seedforum', (req, res) => {
+app.get('/project3/seedforum', (req, res) => {
     Forumschema.create(seedForum, (err, createdForumData) => {
         res.json('/')
     })
 })
 
 //Creating seed data for senators
-app.get('/seedsenator', (req, res) => {
+app.get('/project3/seedsenator', (req, res) => {
     Senatorschema.create(seedSenator, (err, createdSenatorData) => {
         res.json('/')
     })
@@ -65,14 +65,14 @@ app.get('/seedsenator', (req, res) => {
 
 
 // Create new forum post
-app.post('/forum', (req, res) => {
+app.post('/project3/forum', (req, res) => {
   Forumschema.create(req.body, (err, createdForumPost) => {        res.json(createdForumPost)
     })
 })
 
 
 //Route for home page, shows msa data and forum data
-app.get('/', (req, res) => {
+app.get('/project3', (req, res) => {
 	Msaschema.find({}, (err, shooting) => {
 		Forumschema.find({}, (err, thoughts) => {
       Senatorschema.find({}, (err, senator) => {
@@ -89,14 +89,14 @@ app.get('/', (req, res) => {
 })
 
 // Update forum post
-app.put('/forum/:id', (req, res) => {
+app.put('/project3/forum/:id', (req, res) => {
     Forumschema.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedForumPost) => {
         res.json(updatedForumPost)
     })
 })
 
 // Delete forum post
-app.delete('/forum/:id', (req, res) => {
+app.delete('/project3/forum/:id', (req, res) => {
     Forumschema.findByIdAndRemove(req.params.id, (error, deletedForumPost) => {
         res.json(deletedForumPost)
     })
@@ -105,7 +105,9 @@ app.delete('/forum/:id', (req, res) => {
 
 //___________________
 //localhost:3000
-
+app.get('/' , (req, res) => {
+  res.redirect('/project3');
+});
 
 //___________________
 //Listener
