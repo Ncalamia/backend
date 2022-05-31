@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('../db/connections.js')
 
 const Forumschema = new mongoose.Schema({
   username: String,
