@@ -17,6 +17,9 @@ require('dotenv').config()
 // mongoose.connection.once('open', () => {
 //     console.log('connected to mongod...')
 // })
+
+
+// How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
 
 //Port
@@ -33,7 +36,7 @@ mongoose
 //___________________
 //Database
 //___________________
-// How to connect to the database either via heroku or locally
+
 
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
