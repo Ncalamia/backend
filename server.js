@@ -12,10 +12,10 @@ const seedSenator = require('./models/senatordata.js')
 require('dotenv').config()
 
 // CONNECTIONS
-mongoose.connect('mongodb://localhost:27017/app')
-mongoose.connection.once('open', () => {
-    console.log('connected to mongod...')
-})
+// mongoose.connect('mongodb://localhost:27017/app')
+// mongoose.connection.once('open', () => {
+//     console.log('connected to mongod...')
+// })
 
 //Port
 //___________________
