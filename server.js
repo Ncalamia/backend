@@ -26,8 +26,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3001;
-mongoose
-  .connect( MONGODB_URI, {
+mongoose.connect( MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
