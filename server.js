@@ -10,7 +10,6 @@ const Senatorschema = require('./models/senatorschema.js')
 const seedMSA = require('./models/msadata.js')
 const seedForum = require('./models/forumdata.js')
 const seedSenator = require('./models/senatordata.js')
-require('dotenv').config()
 
 
 // const db = moongoose.connection
@@ -31,11 +30,11 @@ const MONGODB_URI = process.env.MONGODB_URI;
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-// const PORT = process.env.PORT || 3001;
-// mongoose.connect( MONGODB_URI, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
+const PORT = process.env.PORT || 3001;
+mongoose.connect( MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
 
 //Port
 //___________________
@@ -55,9 +54,9 @@ const PORT = process.env.PORT
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , () => {
-	console.log('connected to mongo')
-})
+// mongoose.connect(MONGODB_URI , () => {
+// 	console.log('connected to mongo')
+// })
 
 
 app.set("port",process.env.PORT || 3000)
@@ -144,43 +143,10 @@ app.get('/' , (req, res) => {
   res.redirect('/project3');
 });
 
-// app.post('/app/seed', (req, res) => {
-//     Creature.create(seedData, (error, createdSeedData) => {
-//         res.json(createdSeedData)
-//     })
-// })
-
-app.post('/', (req, res) => {
-        res.json(createdApp)
-    })
-
-app.get('/', (req, res) => {
-			// res.send('Hello World')
-        res.json(foundApp)
-})
-
-// app.put('/app/:id', (req, res) => {
-//     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
-//         res.json(updatedApp)
-//     })
-// })
-//
-// app.delete('/app/:id', (req, res) => {
-//     Creature.findByIdAndRemove(req.params.id, (error, deletedApp) => {
-//         res.json(deletedApp)
-//     })
-// })
-
-//___________________
-//localhost:3000
-
 
 //___________________
 //Listener
 //___________________
 
-
 app.listen(app.get('port'), ()=>{console.log(`"listening on ${app.get('port')}"`)
 })
-
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));
