@@ -40,7 +40,7 @@ mongoose.connect( MONGODB_URI, {
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT
+// const PORT = process.env.PORT
 
 //___________________
 //Database
