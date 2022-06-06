@@ -376,7 +376,7 @@ module.exports = [
 		email: "https://www.capito.senate.gov/contact/contact-shelle",
 		phone:"(202) 224-6472",
 		leaning: "Declines to answer",
-		funding: "Shelley Moore Capito",
+		funding: "$338,000",
 		image:"https://www.republicanleader.senate.gov/imo/media/image/Shelley_Moore_Capito_official_Senate_photo_350.jpg"
 	},
 	{

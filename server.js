@@ -77,7 +77,8 @@ app.get('/project3/seedsenator', (req, res) => {
 
 // Create new forum post
 app.post('/project3/forum', (req, res) => {
-  Forumschema.create(req.body, (err, createdForumPost) => {        res.json(createdForumPost)
+  Forumschema.create(req.body, (err, createdForumPost) => {
+		res.json(createdForumPost)
     })
 })
 
