@@ -10,10 +10,10 @@ const Senatorschema = require('./models/senatorschema.js')
 const seedMSA = require('./models/msadata.js')
 const seedForum = require('./models/forumdata.js')
 const seedSenator = require('./models/senatordata.js')
+require('dotenv').config()
 
 
 // const db = moongoose.connection
-require('dotenv').config()
 
 
 // CONNECTIONS
@@ -30,11 +30,11 @@ const MONGODB_URI = process.env.MONGODB_URI;
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3001;
-mongoose.connect( MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+// const PORT = process.env.PORT || 3001;
+// mongoose.connect( MONGODB_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
 
 //Port
 //___________________
@@ -52,11 +52,9 @@ const PORT = process.env.PORT
 
 
 // Connect to Mongo &
-// Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
-// mongoose.connect(MONGODB_URI , () => {
-// 	console.log('connected to mongo')
-// })
+mongoose.connect(MONGODB_URI , () => {
+	console.log('connected to mongo')
+})
 
 
 app.set("port",process.env.PORT || 3000)
