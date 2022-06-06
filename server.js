@@ -1,4 +1,5 @@
 // DEPENDENCIES
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -10,7 +11,6 @@ const Senatorschema = require('./models/senatorschema.js')
 const seedMSA = require('./models/msadata.js')
 const seedForum = require('./models/forumdata.js')
 const seedSenator = require('./models/senatordata.js')
-require('dotenv').config()
 
 
 // const db = moongoose.connection
