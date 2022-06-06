@@ -109,7 +109,7 @@ app.get('/project3', (req, res) => {
 				 {
 				 shooting,
 				 thoughts,
-         senator
+         senator,
 			 }
 			)
   })
@@ -123,7 +123,12 @@ app.put('/project3/forum/:id', (req, res) => {
         res.json(updatedForumPost)
     })
 })
-
+// Update MSA
+app.put('/project3/msa/:id', (req, res) => {
+    Msaschema.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedMsaPost) => {
+        res.json(updatedMsaPost)
+    })
+})
 // Delete forum post
 app.delete('/project3/forum/:id', (req, res) => {
     Forumschema.findByIdAndRemove(req.params.id, (error, deletedForumPost) => {
