@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express()
+
 const Msaschema = require('./models/msaschema.js')
 const Forumschema = require('./models/forumschema.js')
 const Senatorschema = require('./models/senatorschema.js')
@@ -12,11 +13,16 @@ const seedSenator = require('./models/senatordata.js')
 require('dotenv').config()
 
 
+// const db = moongoose.connection
+require('dotenv').config()
+
+
 // CONNECTIONS
 // mongoose.connect('mongodb://localhost:27017/app')
 // mongoose.connection.once('open', () => {
 //     console.log('connected to mongod...')
 // })
+
 
 
 // How to connect to the database either via heroku or locally
@@ -31,10 +37,19 @@ mongoose.connect( MONGODB_URI, {
     useUnifiedTopology: true,
   })
 
+//Port
+//___________________
+// Allow use of Heroku's port or your own local port, depending on the environment
+const PORT = process.env.PORT
 
 //___________________
 //Database
 //___________________
+
+
+
+// How to connect to the database either via heroku or locally
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 // Connect to Mongo &
@@ -44,13 +59,16 @@ mongoose.connect(MONGODB_URI , () => {
 	console.log('connected to mongo')
 })
 
+
 app.set("port",process.env.PORT || 3000)
+
 // MIDDLEWARE
 app.use(express.json())
 app.use(cors())
 
 
 // RESTful CRUD ROUTES
+
 
 //Creating seed data for mass shootings
 app.get('/project3/seed', (req, res) => {
@@ -92,7 +110,7 @@ app.get('/project3', (req, res) => {
 				 {
 				 shooting,
 				 thoughts,
-         senator
+         senator,
 			 }
 			)
   })
@@ -106,7 +124,12 @@ app.put('/project3/forum/:id', (req, res) => {
         res.json(updatedForumPost)
     })
 })
-
+// Update MSA
+app.put('/project3/msa/:id', (req, res) => {
+    Msaschema.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedMsaPost) => {
+        res.json(updatedMsaPost)
+    })
+})
 // Delete forum post
 app.delete('/project3/forum/:id', (req, res) => {
     Forumschema.findByIdAndRemove(req.params.id, (error, deletedForumPost) => {
@@ -121,6 +144,37 @@ app.get('/' , (req, res) => {
   res.redirect('/project3');
 });
 
+// app.post('/app/seed', (req, res) => {
+//     Creature.create(seedData, (error, createdSeedData) => {
+//         res.json(createdSeedData)
+//     })
+// })
+
+app.post('/', (req, res) => {
+        res.json(createdApp)
+    })
+
+app.get('/', (req, res) => {
+			// res.send('Hello World')
+        res.json(foundApp)
+})
+
+// app.put('/app/:id', (req, res) => {
+//     Creature.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedApp) => {
+//         res.json(updatedApp)
+//     })
+// })
+//
+// app.delete('/app/:id', (req, res) => {
+//     Creature.findByIdAndRemove(req.params.id, (error, deletedApp) => {
+//         res.json(deletedApp)
+//     })
+// })
+
+//___________________
+//localhost:3000
+
+
 //___________________
 //Listener
 //___________________
@@ -128,3 +182,5 @@ app.get('/' , (req, res) => {
 
 app.listen(app.get('port'), ()=>{console.log(`"listening on ${app.get('port')}"`)
 })
+
+app.listen(PORT, () => console.log( 'Listening on port:', PORT));

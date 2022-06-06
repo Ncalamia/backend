@@ -1,4 +1,28 @@
 # backend
+Links to our projects:
+https://rocky-savannah-90233.herokuapp.com/project3
+
+Approach taken:
+worked together on backend
+maha worked on home and msa page
+nikki worked on senator and forum page
+
+Unsolved problems:
+No issues with setting up backend
+
+Timeline of workflow:
+5/27:
+-Set up 2 herokus, 2 git repos, 1 mongodb Atlas. Met with instructor lead to run idea by him. We met with Tim and Caroline and helped them set up backend on heroku and they helped us set up front end on heroku.
+
+5/28:
+-Found data to use, set up database for 1 part of project and made schema. We converted our data from CSV file to JSON file. We successfully viewed our data locally and in Postman.
+
+5/29:
+-Set up forum data and schema. Set up senator schema. Set up the app.get route for forum and msa data. Still getting used to working with branches and git. Spent time on fixing rebase (bugs) with our git repo and branches.
+
+5/31:
+-Finished adding in senator data and creating CRUD routes.
+
 Data Resources:
 
 MSA Data:
@@ -30,3 +54,7 @@ https://www.senate.gov/general/contact_information/senators_cfm.xml
 
 5/31:
 -Finished adding in senator data and creating CRUD routes.
+
+
+
+
