@@ -49,7 +49,7 @@ const PORT = process.env.PORT
 
 
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
+// const MONGODB_URI = process.env.MONGODB_URI;
 
 
 // Connect to Mongo &
